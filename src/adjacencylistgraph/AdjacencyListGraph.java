@@ -111,6 +111,8 @@ public class AdjacencyListGraph<V> implements Graph<V> {
         assert !vertices.contains(v);
 
         vertices.add(v);
+        List<Edge<V>> list = new ArrayList<>();
+        edges.put(v, list);
     }
 
     /**
@@ -137,14 +139,7 @@ public class AdjacencyListGraph<V> implements Graph<V> {
      */
     @Override
     public Edge<V> addEdge(V u, V v) {
-        assert vertices.contains(u);
-        assert vertices.contains(v);
-        assert !areAdjacent(u,v);
-
-        Edge<V> edge = new Edge<>(u, v);
-        edges.get(u).add(edge);
-        edges.get(v).add(edge);
-        return edge;
+        return addEdge(u,v,0);
     }
 
 

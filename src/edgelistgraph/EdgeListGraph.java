@@ -142,6 +142,7 @@ public class EdgeListGraph<V> implements Graph<V> {
      */
     @Override
     public void removeVertex(V v) {
+        assert vertices.contains(v);
         assert incidentEdges(v).isEmpty();
         vertices.remove(v);
     }
